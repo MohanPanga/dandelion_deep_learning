@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Dog or Cat ?</title>
-      <!-- Latest compiled and minified CSS -->
+    <meta charset="UTF-8">
+    <title>Dandelion or Not???</title>
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -18,13 +19,16 @@
 </script>
 
 <style>
-    .img_holder img{
-        max-width: 100%; max-height: 100%;
+    .img_holder img {
+        max-width: 100%;
+        max-height: 100%;
     }
+
     .btn-file {
-    position: relative;
-    overflow: hidden;
+        position: relative;
+        overflow: hidden;
     }
+
     .btn-file input[type=file] {
         position: absolute;
         top: 0;
@@ -43,29 +47,33 @@
 </style>
 
 <body>
-<div class="container" style="margin: auto;width;40%; text-align: center; margin-top: 70px;  text-transform: uppercase">
+    <div class="container"
+        style="margin: auto;width:40%; text-align: center; margin-top: 70px;  text-transform: uppercase">
 
 
-  <h3 style="margin: auto;width: 80%; text-align: center; margin-top: 50px;  text-transform: uppercase">Dandelion or Not???</h3>
+        <h3 style="margin: auto;width: 80%; text-align: center; margin-top: 50px;  text-transform: uppercase">Dandelion
+            or Not???</h3>
 
-   <div style="text-align: center; margin-top: 20px">
-       <img style="max-width: 600px" src="{{ url_for('static', filename='img/Dandelion1.jpg') }}"/>
-   </div>
+        <div style="text-align: center; margin-top: 20px">
+            <img style="max-width: 600px" src="{{ url_for('static', filename='img/Dandelion1.jpg') }}" />
+        </div>
 
-  <form action="/upload" method="post" enctype="multipart/form-data" style="margin-top: 50px; width: 60%; text-align: center; margin: auto;" onsubmit="showloading()">
-      <span class="text-left btn btn-default btn-file">
-        Upload Image <input type="file" name="image">
-    </span>
+        <form action="/upload" method="post" enctype="multipart/form-data"
+            style="margin-top: 50px; width: 60%; text-align: center; margin: auto;" onsubmit="showloading()">
+            <span class="text-left btn btn-default btn-file">
+                Upload Image <input type="file" name="image">
+            </span>
 
 
-      <span class="text-right">
-        <input type="submit" value="Predict" class="btn btn-primary">
-      </span>
-  </form>
-    <div style="text-align: center">
-        <img id="loading_image" style="display: none" src="{{ url_for('static', filename='img/loading.gif')}}">
+            <span class="text-right">
+                <input type="submit" value="Predict" class="btn btn-primary">
+            </span>
+        </form>
+        <div style="text-align: center">
+            <img id="loading_image" style="display: none" src="{{ url_for('static', filename='img/loading.gif')}}">
+        </div>
     </div>
-</div>
 
 </body>
+
 </html>
