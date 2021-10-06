@@ -59,12 +59,12 @@ def upload_file():
 
         if pred_prob > .5:
             label = 'Dandelion'
-            accuracy = round(pred_prob * 100, 2)
+            # accuracy = round(pred_prob * 100, 2)
         else:
             label = 'Not Dandelion'
-            accuracy = round((1 - pred_prob) * 100, 2)
+            # accuracy = round((1 - pred_prob) * 100, 2)
 
-        return render_template('predict.html', image_file_name=file.filename, label=label, accuracy=accuracy)
+        return render_template('predict.html', image_file_name=file.filename, label=label)
 
 
 
