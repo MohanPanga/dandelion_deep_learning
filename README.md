@@ -22,6 +22,6 @@ __720x720__
 __540x540__
 ![](Images/readme_images/540.png)
 
-The 540x540 image size and 7 epochs were chosen for the final model (DandelionModel2.h5). We chose this model to keep the model size manageable and to minimize training loss.
+The 540x540 image size and 7 epochs were chosen for the final model (static/models/DandelionModel2.h5). We chose this model to keep the model size manageable and to minimize training loss.
 The flask application can be launched to upload an image for prediction. Below is a snapshot of the homepage
 ![](Images/readme_images/dandelion.png)
