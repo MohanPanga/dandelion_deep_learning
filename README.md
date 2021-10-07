@@ -15,11 +15,11 @@ __180x180__
 ![180x180](Images/readme_images/180.png)
 </br>
 </br>
-__720x720__
+__720x720__ </br>
 ![](Images/readme_images/720.png)
 </br>
 </br>
-__540x540__
+__540x540__ </br>
 ![](Images/readme_images/540.png)
 
 The 540x540 image size and 7 epochs were chosen for the final model (static/models/DandelionModel2.h5). We chose this model to keep the model size manageable and to minimize training loss.
