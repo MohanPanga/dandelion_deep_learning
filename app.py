@@ -20,31 +20,12 @@ def load__model():
     print('[INFO] : Model loading ................')
     global model
     # model = tf.keras.models.load_model(MODEL_FOLDER + '/DandelionModel1.h5')
-    model = load_model(MODEL_FOLDER + '/DandelionModel1.h5')
+    # model = load_model(MODEL_FOLDER + '/DandelionModel1.h5')
+    # model 2
+    model = load_model(MODEL_FOLDER + '/DandelionModel2.h5')
     
-    #comment out due to bugs, will return later
-    #global graph
-    #graph = tf.get_default_graph()
-    #comment out due to bugs, will return later
 
     print('[INFO] : Model loaded')
-
-
-def predict(fullpath):
-    #load image and set size to 180, 180 and RGB (3)
-    data = image.load_img(fullpath, target_size=(180, 180, 3))
-    
-    data = np.expand_dims(data, axis=0)
-    # Scaling
-    data = data.astype('float') / 255
-
-    # Prediction
-
-   # with graph.as_default():  # re-add later? 
-    result = model.predict(data)
-
-    return result
-
 
 # Home Page
 @app.route('/')
@@ -62,18 +43,37 @@ def upload_file():
         fullname = os.path.join(UPLOAD_FOLDER, file.filename)
         file.save(fullname)
 
-        result = predict(fullname)
+        # img = tf.keras.utils.load_img(
+        # #must be same as what is in training model
+        # fullname, target_size=(180, 180)
+        # )
+        # img_array = tf.keras.utils.img_to_array(img)
+        # img_array = tf.expand_dims(img_array, 0) # Create a batch
 
-        pred_prob = result.item()
 
-        if pred_prob > .5:
-            label = 'Dandelion'
-            accuracy = round(pred_prob * 100, 2)
+# # Model 2
+        img = tf.keras.utils.load_img(
+        fullname, target_size=(540, 540)
+)
+        img_array = tf.keras.utils.img_to_array(img)
+        img_array = tf.expand_dims(img_array, 0) 
+
+        
+
+        result = model.predict(img_array)[0]
+        pred_prob=result[0]
+
+
+# tightened specs to account for dandelion leaves in training set
+        if pred_prob > .25:
+            label = 'Not a Dandelion'
+           
         else:
-            label = 'Not Dandelion'
-            accuracy = round((1 - pred_prob) * 100, 2)
+            label = 'Dandelion'
+           
 
-        return render_template('predict.html', image_file_name=file.filename, label=label, accuracy=accuracy)
+        return render_template('predict.html', image_file_name=file.filename, label=label)
+
 
 
 @app.route('/upload/<filename>')
