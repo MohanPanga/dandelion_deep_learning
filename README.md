@@ -1,6 +1,6 @@
 # Dandelion or Not?
 __Deep Learning Model__</br>
-In this project a deep learning was developed to predict if an image contains dandelion (including leaves) or not. The purpose of detecting leaves is to identify dandelions even before the flower blooms. 
+In this project, a deep learning machine was developed to predict if an image contains dandelion (including leaves) or not. The purpose of detecting leaves is to identify dandelions even before the flower blooms. 
 The dataset to train the model was obtained from Kaggle. It contained over 1200 images which were loaded to Amazon S3 bucket to facilitate acces for model training.
 ![](Images/readme_images/kaggle.png)
 
