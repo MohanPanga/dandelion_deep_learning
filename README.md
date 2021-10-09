@@ -6,7 +6,7 @@ The dataset to train the model was obtained from Kaggle. It contained over 1200 
 
 A sequential classification model based on neural network was built to predict the presence of dandelion.  
 ![](Images/readme_images/modelcode.png)
-The model summary is shown below:
+The model summary is shown below:</br>
 ![](Images/readme_images/modelsummary.png)</br>
 The images were scaled to different sizes (180x180, 540x540 & 720x720) to improve model accuracy. In addition, number of epochs, activation methods (reLu, sigmoid) were varied to address overfitting and over training.  Below you can see the training and validation accuracy and loss for three image sizes. </br>
 </br>
